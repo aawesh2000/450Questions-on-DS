@@ -4,8 +4,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-//there is some error in this code, idk why, will check it later 
-
 
 void reverse(int arr[], int start, int end){
     //start = arr[0];
@@ -47,7 +45,7 @@ int main(){
     //start = arr[0];
     //end = arr[n-1];
     
-    int arrSize = sizeof(arr)/sizeof(arr[0]);
+    int arrSize = n;
     //cout<<arrSize<<endl;
     //cout<<"UNREVERSED ARRAY";
     //print_reversed_array(arr, arrSize);
