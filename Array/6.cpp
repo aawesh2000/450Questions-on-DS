@@ -1,29 +1,30 @@
     //Union of two arrays using SETS
     //SET stl template in CPP 
 
-    #include <bits/stdc++.h>
-    using namespace std;
 
-    void GETunion(int a[], int n, int b[], int m)
-    {
+/*
+#include <bits/stdc++.h>
+using namespace std;
+
+void GETunion(int a[], int n, int b[], int m){
         
-        set<int> s;                     	// Defining set 
+    set<int> s;                     	// Defining set 
 
-        for (int i = 0; i < n; i++){
-            s.insert(a[i]);                 // Inserting array A elemnets in set s
-        }                                   
+    for (int i = 0; i < n; i++){
+        s.insert(a[i]);                 // Inserting array A elemnets in set s
+    }                                   
 
-        for (int i = 0; i < m; i++){
-            s.insert(b[i]);                 // Inserting array B elemnets in set s
-        }
-        
-        cout << "COUNT AFTER UNION : " << s.size() << endl;
-        cout << "The union set of both Arrays is : " << endl;
-
-        for (auto itr = s.begin(); itr != s.end(); itr++){          //for printing UNION SET OF BOTH ARRAY AFTER UNION
-            cout << *itr<< " "; 
-        }
+    for (int i = 0; i < m; i++){
+        s.insert(b[i]);                 // Inserting array B elemnets in set s
     }
+        
+    cout << "COUNT AFTER UNION : " << s.size() << endl;
+    cout << "The union set of both Arrays is : " << endl;
+
+    for (auto itr = s.begin(); itr != s.end(); itr++){          //for printing UNION SET OF BOTH ARRAY AFTER UNION
+        cout << *itr<< " "; 
+    }
+}
 
     
     int main()
@@ -34,7 +35,55 @@
         GETunion(a, 5, b, 7);
     }
 
+*/
 
+
+//METHOD2 using ARRAY/LOOP's
+#include <bits/stdc++.h>
+using namespace std;
+
+void printUnion(int arr1[], int arr2[], int m, int n){
+    int i=0, j=0;
+    while(i<m && j<n){
+        if(arr1[i] < arr2[j]){
+            cout<<arr1[i]<<" ";
+            i++;
+        }
+        else if(arr2[j] < arr1[i]){
+            cout<<arr2[j]<<" ";
+            j++;
+        }
+        else{
+            cout<<arr2[j]<<" ";
+            j++;
+            i++;
+        }
+
+    }
+
+    //print remaining array
+    while(i<m){
+        cout << arr1[i] << " ";
+        i++;
+    }
+    while(j<n){
+        cout << arr2[j] << " ";
+        j++;
+    }
+}
+
+int main()
+{
+    int arr1[] = { 1, 2, 4, 5, 6 };
+    int arr2[] = { 2, 3, 5, 7 };
+ 
+    int m = sizeof(arr1) / sizeof(arr1[0]);
+    int n = sizeof(arr2) / sizeof(arr2[0]);
+ 
+    printUnion(arr1, arr2, m, n);
+ 
+    return 0;
+}
 
     /*
     //Set in C++ Standard Template Library (STL)
